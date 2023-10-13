@@ -1,6 +1,6 @@
 import pygame
 
-# Inicialize o pygame
+# Start no pygame
 pygame.init()
 
 # Função para tocar música
@@ -12,7 +12,7 @@ def play_music(file_path):
 def stop_music():
     pygame.mixer.music.stop()
 
-# Lista de músicas
+# Lista de músicas (colocar o diretório das músicas que voce quer tocar)
 music_files = []
 
 while True:
