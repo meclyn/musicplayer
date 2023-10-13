@@ -1,12 +1,12 @@
 import pygame
 import tkinter as tk
 from tkinter import filedialog
-from PIL import Image, ImageTk  # Importar as bibliotecas necessárias
+from PIL import Image, ImageTk  # Importar as bibliotecas
 
-# Inicialize o pygame
+# Start no pygame
 pygame.init()
 
-# Inicialize o mixer do pygame
+# Start no mixer do pygame
 pygame.mixer.init()
 
 # Função para tocar música com um volume específico
@@ -30,18 +30,18 @@ def set_volume(value):
     volume = float(value) / 100.0  # Converter para valor entre 0.0 e 1.0
     pygame.mixer.music.set_volume(volume)
 
-# Crie uma janela Tkinter
+# Criando a janela
 root = tk.Tk()
 root.title("Player de Música com Controle de Volume")
 
-# Defina o fundo preto da janela principal
+# Definindo o fundo preto da janela
 root.configure(bg="black")
 
-# Carregue a imagem que você deseja exibir no centro da janela
+# Carregando a imagem do meio
 image = Image.open("icons8-music-128.png")  # Substitua pelo caminho da sua imagem
 photo = ImageTk.PhotoImage(image)
 
-# Crie um Label para exibir a imagem
+# Criando um Label para exibir a imagem
 image_label = tk.Label(root, image=photo, bg="black")
 image_label.grid(row=1, column=1, padx=10, pady=10)
 
@@ -49,17 +49,17 @@ image_label.grid(row=1, column=1, padx=10, pady=10)
 choose_button = tk.Button(root, text="Escolher Música", command=choose_music, bg="black", fg="white", bd=2, highlightbackground="dark gray")
 choose_button.grid(row=0, column=6, padx=5, pady=5)
 
-# Controle deslizante de volume (vertical e à esquerda) sem borda
+# Controle de slider de volume
 volume_slider = tk.Scale(root, from_=100, to=0, orient="vertical", label="Volume",
                          command=lambda value: set_volume(value), bg="black", fg="white", highlightbackground="dark gray", bd=0)
 volume_slider.set(50)  # Valor inicial do volume
 volume_slider.grid(row=0, column=0, rowspan=5, padx=10, pady=10)
 
-# Botão para tocar música com emoji de Play
+# Botão para tocar música
 play_button = tk.Button(root, text="▶️ Tocar Música", command=lambda: play_music_with_volume(file_path, volume_slider.get()), bg="black", fg="white", bd=2, highlightbackground="dark gray")
 play_button.grid(row=1, column=6, padx=5, pady=5)
 
-# Botão para parar música com emoji de Pause
+# Botão para parar música
 pause_button = tk.Button(root, text="⏸️ Parar Música", command=stop_music, bg="black", fg="white", bd=2, highlightbackground="dark gray")
 pause_button.grid(row=2, column=6, padx=5, pady=5)
 
