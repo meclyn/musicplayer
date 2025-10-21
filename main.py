@@ -1,6 +1,6 @@
 import pygame
 
-# Start no pygame
+# Start no pygame.
 pygame.init()
 
 # Função para tocar música
